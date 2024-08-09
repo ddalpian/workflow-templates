@@ -11,7 +11,7 @@ on:
 jobs:
   ruby-rspec:
     if: ${{ inputs.framework }} == 'ruby/rspec'
-    name: CI / Test / Ruby RSpec
+    name: Ruby RSpec
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -23,7 +23,7 @@ jobs:
   
   python-pytest:
     if: ${{ inputs.framework }} == 'python/pytest'
-    name: CI / Test / Python PyTest
+    name: Python PyTest
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -35,7 +35,7 @@ jobs:
 
   javascript-testing-library:
     if: ${{ inputs.framework }} == 'javascript/testing-library'
-    name: CI / Test / JavaScript Testing Library
+    name: JavaScript Testing Library
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
