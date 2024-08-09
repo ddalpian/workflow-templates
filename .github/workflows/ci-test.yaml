@@ -10,7 +10,7 @@ on:
 
 jobs:
   ruby-rspec:
-    if: ${{ inputs.framework }} == 'ruby/rspec'
+    if: ${{ inputs.framework == 'ruby/rspec' }}
     name: Ruby RSpec
     runs-on: ubuntu-latest
     steps:
@@ -22,7 +22,7 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
   
   python-pytest:
-    if: ${{ inputs.framework }} == 'python/pytest'
+    if: ${{ inputs.framework == 'python/pytest' }}
     name: Python PyTest
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +34,7 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
   javascript-testing-library:
-    if: ${{ inputs.framework }} == 'javascript/testing-library'
+    if: ${{ inputs.framework == 'javascript/testing-library' }}
     name: JavaScript Testing Library
     runs-on: ubuntu-latest
     steps:
