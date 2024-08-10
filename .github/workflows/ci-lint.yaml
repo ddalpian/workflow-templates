@@ -3,6 +3,12 @@ name: CI - Lint
 on:
   workflow_call:
     inputs:
+      language:
+        required: false
+        type: string
+      version:
+        required: false
+        type: string
       framework:
         required: true
         type: string
@@ -13,21 +19,21 @@ on:
 
 jobs:
   ruby-rubocop:
-    if: ${{ inputs.active && inputs.framework == 'ruby/rubocop' }}
+    if: ${{ inputs.active && inputs.language == 'ruby' && inputs.framework == 'rubocop' }}
     name: Ruby Rubocop
     runs-on: ubuntu-latest
     steps:
       - run: echo "Running ruby/rubocop"
 
   python-pylint:
-    if: ${{ inputs.active && inputs.framework == 'python/pylint' }}
+    if: ${{ inputs.active && inputs.language == 'python' && inputs.framework == 'pylint' }}
     name: Python PyLint
     runs-on: ubuntu-latest
     steps:
       - run: echo "Running python/pylint"
 
   javascript-eslint:
-    if: ${{ inputs.active && inputs.framework == 'javascript/eslint' }}
+    if: ${{ inputs.active && inputs.language == 'javascript' && inputs.framework == 'eslint' }}
     name: JavaScript ESLint
     runs-on: ubuntu-latest
     steps:

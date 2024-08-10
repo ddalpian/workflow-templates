@@ -3,6 +3,12 @@ name: CI
 on:
   workflow_call:
     inputs:
+      language:
+        required: true
+        type: string
+      version:
+        required: true
+        type: string
       lint-framework:
         required: true
         type: string
@@ -23,11 +29,16 @@ jobs:
     name: Lint
     uses: ddalpian/workflow-templates/.github/workflows/ci-lint.yaml@master
     with:
+      language: ${{ inputs.language }}
+      version: ${{ inputs.version }}
       framework: ${{ inputs.lint-framework }}
       active: ${{ inputs.lint-active }}
+
   ci-test:
     name: Test
     uses: ddalpian/workflow-templates/.github/workflows/ci-test.yaml@master
     with:
+      language: ${{ inputs.language }}
+      version: ${{ inputs.version }}
       framework: ${{ inputs.test-framework }}
       active: ${{ inputs.test-active }}
