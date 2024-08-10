@@ -3,11 +3,29 @@ name: Example - CI
 on: workflow_dispatch
 
 jobs:
-  ci:
-    name: CI
+  ci-ruby:
+    name: CI - Ruby
     uses: ddalpian/workflow-templates/.github/workflows/ci.yaml@master
     with:
       lint-framework: ruby/rubocop
       lint-active: true
       test-framework: ruby/rspec
+      test-active: true
+
+  ci-python:
+    name: CI - Python
+    uses: ddalpian/workflow-templates/.github/workflows/ci.yaml@master
+    with:
+      lint-framework: python/pylint
+      lint-active: true
+      test-framework: python/pytest
+      test-active: true
+
+  ci-javascript:
+    name: CI - Javascript
+    uses: ddalpian/workflow-templates/.github/workflows/ci.yaml@master
+    with:
+      lint-framework: javascript/eslint
+      lint-active: true
+      test-framework: javascript/testing-library
       test-active: true
