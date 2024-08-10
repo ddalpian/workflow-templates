@@ -21,13 +21,13 @@ on:
 jobs:
   ci-lint:
     name: Lint
-    uses: ddalpian/workflow-templates/.github/workflows/ci/lint.yaml@master
+    uses: ddalpian/workflow-templates/.github/workflows/ci-lint.yaml@master
     with:
       framework: ${{ inputs.lint-framework }}
       active: ${{ inputs.lint-active }}
   ci-test:
     name: Test
-    uses: ddalpian/workflow-templates/.github/workflows/ci/test.yaml@master
+    uses: ddalpian/workflow-templates/.github/workflows/ci-test.yaml@master
     with:
       framework: ${{ inputs.test-framework }}
       active: ${{ inputs.test-active }}
