@@ -1,4 +1,4 @@
-name: CI Example
+name: CI
 
 on: workflow_dispatch
 
@@ -7,6 +7,6 @@ jobs:
     uses: ddalpian/workflow-templates/.github/workflows/ci.yaml@master
     with:
       lint-framework: ruby/rubocop
-      lint-active: true
+      lint-active: false
       test-framework: ruby/rspec
       test-active: true
