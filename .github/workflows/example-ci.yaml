@@ -3,7 +3,8 @@ name: CI
 on: workflow_dispatch
 
 jobs:
-  ci-lint:
+  ci:
+    name: CI
     uses: ddalpian/workflow-templates/.github/workflows/ci.yaml@master
     with:
       lint-framework: ruby/rubocop
