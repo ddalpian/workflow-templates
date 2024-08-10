@@ -1,0 +1,28 @@
+name: Python CI PyTest
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        required: false
+        type: string
+      active:
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  python-pytest:
+    if: ${{ inputs.active }}
+    name: PyTest Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version }}
+      - name: Install dependencies
+        run: pip install --no-cache-dir -r requirements.txt
+      - name: Lint check
+        run: pylint **/*.py
