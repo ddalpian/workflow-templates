@@ -1,10 +1,5 @@
 name: Test
 
-env:
-  FRAMEWORK_RUBY_RSPEC: ruby/rspec
-  FRAMEWORK_PYTHON_PYTEST: python/pytest
-  FRAMEWORK_JAVASCRIPT_TESTING_LIBRARY: javascript/testing-library
-
 on:
   workflow_call:
     inputs:
@@ -18,22 +13,22 @@ on:
 
 jobs:
   ruby-rspec:
-    if: ${{ inputs.active && inputs.framework == env.FRAMEWORK_RUBY_RSPEC }}
+    if: ${{ inputs.active && inputs.framework == 'ruby/rspec' }}
     name: Ruby RSpec
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Running $FRAMEWORK_RUBY_RSPEC"
+      - run: echo "Running ruby/rspec"
 
   python-pytest:
-    if: ${{ inputs.active && inputs.framework == env.FRAMEWORK_PYTHON_PYTEST }}
+    if: ${{ inputs.active && inputs.framework == 'python/pytest' }}
     name: Python PyTest
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Running $FRAMEWORK_PYTHON_PYTEST"
+      - run: echo "Running python/pytest"
 
   javascript-testing-library:
-    if: ${{ inputs.active && inputs.framework == env.FRAMEWORK_JAVASCRIPT_TESTING_LIBRARY }}
+    if: ${{ inputs.active && inputs.framework == 'javascript/testing-library' }}
     name: JavaScript Testing Library
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Running $FRAMEWORK_JAVASCRIPT_TESTING_LIBRARY"
+      - run: echo "Running javascript/testing-library"

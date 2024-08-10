@@ -1,10 +1,5 @@
 name: Lint
 
-env:
-  FRAMEWORK_RUBY_RUBOCOP: ruby/rubocop
-  FRAMEWORK_PYTHON_PYLINT: python/pylint
-  FRAMEWORK_JAVASCRIPT_ESLINT: javascript/eslint
-
 on:
   workflow_call:
     inputs:
@@ -18,22 +13,22 @@ on:
 
 jobs:
   ruby-rubocop:
-    if: ${{ inputs.active && inputs.framework == env.FRAMEWORK_RUBY_RUBOCOP }}
+    if: ${{ inputs.active && inputs.framework == 'ruby/rubocop' }}
     name: Ruby Rubocop
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Running $FRAMEWORK_RUBY_RUBOCOP"
+      - run: echo "Running ruby/rubocop"
 
   python-pylint:
-    if: ${{ inputs.active && inputs.framework == env.FRAMEWORK_PYTHON_PYLINT }}
+    if: ${{ inputs.active && inputs.framework == 'python/pylint' }}
     name: Python PyLint
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Running $FRAMEWORK_PYTHON_PYLINT"
+      - run: echo "Running python/pylint"
 
   javascript-eslint:
-    if: ${{ inputs.active && inputs.framework == env.FRAMEWORK_JAVASCRIPT_ESLINT }}
+    if: ${{ inputs.active && inputs.framework == 'javascript/eslint' }}
     name: JavaScript ESLint
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Running $FRAMEWORK_JAVASCRIPT_ESLINT"
+      - run: echo "Running javascript/eslint"
