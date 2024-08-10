@@ -30,7 +30,15 @@ jobs:
     name: Python PyLint
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Running python/pylint"
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.version }}
+      - name: Installing dependencies
+        run: pipenv install --system
+      - name: Lint check
+        run: pylint **/*.py
 
   javascript-eslint:
     if: ${{ inputs.active && inputs.language == 'javascript' && inputs.framework == 'eslint' }}
